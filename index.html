@@ -1,0 +1,214 @@
+
+<h2 class="sr-only">Timeline of biomedical language model architectures from 2019 to 2025, organized into four families: encoder-only, generative, general-purpose LLMs, and dedicated medical LLMs.</h2>
+
+<style>
+.tl-wrap { padding: 0.5rem 0 1rem; font-size: 13px; }
+.tl-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.25rem; font-size: 12px; color: var(--color-text-secondary); }
+.tl-legend span { display: flex; align-items: center; gap: 5px; }
+.tl-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.tl-axis { position: relative; margin: 0 0 0 140px; border-left: 1.5px solid var(--color-border-secondary); }
+.tl-row { display: flex; align-items: flex-start; margin-bottom: 10px; position: relative; }
+.tl-family-label {
+  width: 132px; flex-shrink: 0; text-align: right; padding-right: 12px;
+  font-size: 11.5px; font-weight: 500; color: var(--color-text-secondary);
+  padding-top: 3px; line-height: 1.3;
+}
+.tl-track {
+  flex: 1; position: relative; min-height: 32px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  padding-bottom: 8px;
+}
+.tl-track:last-child { border-bottom: none; }
+.tl-chip {
+  position: absolute; top: 0;
+  border-radius: 4px; padding: 2px 7px;
+  font-size: 11px; font-weight: 500;
+  white-space: nowrap; cursor: default;
+  transform: translateX(-50%);
+  border: 0.5px solid transparent;
+  transition: opacity 0.15s;
+  line-height: 1.5;
+}
+.tl-chip:hover { z-index: 10; }
+.tl-tick {
+  position: absolute; top: -18px;
+  font-size: 10.5px; color: var(--color-text-tertiary);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.tl-milestone {
+  position: absolute; top: -14px;
+  font-size: 9.5px; color: var(--color-text-secondary);
+  white-space: nowrap; transform: translateX(-50%);
+  background: var(--color-background-primary);
+  padding: 0 3px; border-radius: 2px;
+  font-style: italic;
+}
+.tl-vline {
+  position: absolute; top: 0; bottom: 0;
+  width: 1px; background: var(--color-border-tertiary);
+  pointer-events: none;
+}
+.tl-yearbar {
+  position: relative; margin-left: 140px;
+  height: 24px; border-left: 1.5px solid var(--color-border-secondary);
+  margin-bottom: 6px;
+}
+</style>
+
+<div class="tl-wrap">
+  <div class="tl-legend">
+    <span><span class="tl-swatch" style="background:#5DCAA5;"></span>Encoder-only</span>
+    <span><span class="tl-swatch" style="background:#85B7EB;"></span>Generative / encoder-decoder</span>
+    <span><span class="tl-swatch" style="background:#EF9F27;"></span>General-purpose LLMs</span>
+    <span><span class="tl-swatch" style="background:#F09595;"></span>Dedicated medical LLMs</span>
+  </div>
+
+  <div id="timeline-root"></div>
+  <p style="font-size:11px; color:var(--color-text-tertiary); margin-top:12px;">
+    Horizontal position reflects year of publication. Hover any chip for a brief annotation. Encoder-only models are evaluated on BLURB; generative and LLM families on MedQA (USMLE).
+  </p>
+</div>
+
+<div id="tt" style="
+  display:none; position:fixed; z-index:999;
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-secondary);
+  border-radius:6px; padding:7px 10px; font-size:11.5px;
+  color:var(--color-text-primary); max-width:220px;
+  pointer-events:none; line-height:1.5;
+"></div>
+
+<script>
+const START = 2019, END = 2025.5;
+const pct = yr => ((yr - START) / (END - START) * 100).toFixed(2) + '%';
+
+const families = [
+  {
+    label: "Encoder-only",
+    color: "#5DCAA5", textColor: "#085041", borderColor: "#1D9E75",
+    bgAlpha: "22",
+    models: [
+      { yr: 2019.1, name: "BioBERT",          note: "110M · PubMed+PMC continued pre-training · BLURB 84.3%" },
+      { yr: 2019.5, name: "SciBERT",           note: "110M · PubMed+CS · BLURB 83.0%" },
+      { yr: 2019.9, name: "Bio_ClinBERT",      note: "110M · MIMIC-III clinical notes · BLURB 82.1%" },
+      { yr: 2020.5, name: "BioMegatron",       note: "345M · larger scale, vocab×size study · BLURB 85.2%" },
+      { yr: 2021.2, name: "PubMedBERT",        note: "110M · from-scratch domain vocab · BLURB 84.9% (SOTA 2021)" },
+      { yr: 2021.7, name: "UmlsBERT",          note: "110M · UMLS-augmented MLM · strong clinical NER" },
+      { yr: 2022.2, name: "BioLinkBERT",       note: "340M · citation-linked pre-training · BLURB 86.4% (SOTA 2022)" },
+      { yr: 2022.6, name: "GatorTron",         note: "8.9B · clinical notes scale-up · BLURB 85.0%" },
+      { yr: 2025.1, name: "Clin. ModernBERT",  note: "149M · modern arch, 2.3× faster · BLURB 84.1%" },
+    ]
+  },
+  {
+    label: "Generative /\nEnc-Dec",
+    color: "#85B7EB", textColor: "#0C447C", borderColor: "#378ADD",
+    models: [
+      { yr: 2021.5, name: "SciFive",    note: "770M · T5 text-to-text for biomedical NLP" },
+      { yr: 2022.3, name: "BioGPT",     note: "1.5B · GPT-2 decoder · PubMedQA 81.0%" },
+      { yr: 2022.5, name: "BioMedLM",   note: "2.7B · decoder · PubMed+PMC" },
+      { yr: 2022.7, name: "BioBART",    note: "400M · BART denoising · NLG tasks" },
+      { yr: 2023.2, name: "BiomedGPT",  note: "182M · first open multimodal generalist · 16 SOTA results" },
+    ]
+  },
+  {
+    label: "General-purpose\nLLMs",
+    color: "#EF9F27", textColor: "#633806", borderColor: "#BA7517",
+    models: [
+      { yr: 2022.8, name: "GPT-3.5",      note: "175B · MedQA 60.2% few-shot — crosses USMLE passing threshold" },
+      { yr: 2023.2, name: "LLaMA-2-70B",  note: "70B · MedQA 62.5% few-shot · first open-weight to pass threshold" },
+      { yr: 2023.5, name: "GPT-4",         note: "MedQA 86.1% — crosses avg. physician threshold" },
+      { yr: 2023.8, name: "Gemini 1.0",    note: "Multimodal web-scale · MedQA 67.0%" },
+      { yr: 2024.2, name: "GPT-4o",        note: "Multimodal frontier · strong clinical + visual reasoning" },
+    ]
+  },
+  {
+    label: "Dedicated\nmedical LLMs",
+    color: "#F09595", textColor: "#501313", borderColor: "#E24B4A",
+    models: [
+      { yr: 2023.0, name: "Med-PaLM",      note: "540B · MedQA 67.6% · MultiMedQA suite + 8-axis physician eval" },
+      { yr: 2023.1, name: "Meditron-70B",  note: "70B · MedQA 70.2% · continued pre-training, open-weight" },
+      { yr: 2023.2, name: "Clin. Camel",   note: "70B · MedQA 60.7% · QLoRA dialogue fine-tuning" },
+      { yr: 2023.3, name: "MedAlpaca",     note: "13B · MedQA 35.4%† · fine-tuning paradox exemplar" },
+      { yr: 2023.4, name: "HuatuoGPT",    note: "7B · Chinese medical corpus · physician+GPT-4 hybrid" },
+      { yr: 2023.7, name: "Med-PaLM 2",   note: "MedQA 86.5% · ensemble refinement + chain-of-retrieval" },
+      { yr: 2024.1, name: "BioMistral",   note: "7B · multilingual · only biomedical model with cross-lingual eval" },
+      { yr: 2024.3, name: "Med-Gemini",   note: "MedQA 91.1% ★ — current SOTA · surpasses physician average" },
+      { yr: 2024.6, name: "Polaris",      note: "Safety-first constellation · DPO on physician preference pairs" },
+      { yr: 2025.2, name: "Baichuan-M1",  note: "14B · full-stack medical pre-training from scratch" },
+    ]
+  }
+];
+
+const YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+const root = document.getElementById('timeline-root');
+const tt = document.getElementById('tt');
+
+const yearBar = document.createElement('div');
+yearBar.className = 'tl-yearbar';
+YEARS.forEach(y => {
+  const tick = document.createElement('div');
+  tick.className = 'tl-tick';
+  tick.style.left = pct(y);
+  tick.textContent = y;
+  yearBar.appendChild(tick);
+  if (y < 2025) {
+    const vl = document.createElement('div');
+    vl.className = 'tl-vline';
+    vl.style.left = pct(y);
+    vl.style.opacity = '0.35';
+    yearBar.appendChild(vl);
+  }
+});
+root.appendChild(yearBar);
+
+families.forEach(fam => {
+  const row = document.createElement('div');
+  row.className = 'tl-row';
+
+  const lbl = document.createElement('div');
+  lbl.className = 'tl-family-label';
+  lbl.innerHTML = fam.label.replace('\n', '<br>');
+  row.appendChild(lbl);
+
+  const track = document.createElement('div');
+  track.className = 'tl-track';
+  track.style.minHeight = '36px';
+
+  YEARS.forEach(y => {
+    const vl = document.createElement('div');
+    vl.className = 'tl-vline';
+    vl.style.left = pct(y);
+    vl.style.opacity = '0.18';
+    track.appendChild(vl);
+  });
+
+  fam.models.forEach((m, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'tl-chip';
+    chip.style.left = pct(m.yr);
+    chip.style.background = fam.color + '28';
+    chip.style.borderColor = fam.borderColor + '66';
+    chip.style.color = fam.textColor;
+    chip.style.top = (Math.floor(i / 1) % 2 === 0 ? 0 : 22) + 'px';
+    chip.textContent = m.name;
+
+    chip.addEventListener('mouseenter', e => {
+      tt.style.display = 'block';
+      tt.innerHTML = `<strong>${m.name}</strong><br>${m.note}`;
+    });
+    chip.addEventListener('mousemove', e => {
+      tt.style.left = (e.clientX + 12) + 'px';
+      tt.style.top  = (e.clientY - 10) + 'px';
+    });
+    chip.addEventListener('mouseleave', () => { tt.style.display = 'none'; });
+
+    track.appendChild(chip);
+  });
+
+  track.style.minHeight = '58px';
+  row.appendChild(track);
+  root.appendChild(row);
+});
+</script>
