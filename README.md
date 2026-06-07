@@ -279,6 +279,7 @@ $$
 
 The answer-level hallucination rate is
 
+$$
 \frac{1}{N}
 \sum_{i=1}^{N}
 \mathbf{1}_H(y_i),
