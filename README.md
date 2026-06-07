@@ -152,7 +152,7 @@ Ordered by publication year, then MedQA score. Chinese-ecosystem models (HuatuoG
 | **PMC-LLaMA-13B** | Wu et al., arXiv 2023 | 13B | LLaMA-13B | CPT on 4.8M PMC full-text papers then IFT | 27.6 ‡ | n/a | ✅ | [github.com/chaoyi-wu/PMC-LLaMA](https://github.com/chaoyi-wu/PMC-LLaMA) |
 | **HuatuoGPT** | Zhang et al., EMNLP Findings 2023 | 7B | Baichuan-7B | SFT on hybrid physician QA + GPT-4 simulation | n/a | n/a | ✅ | [github.com/FreedomIntelligence/HuatuoGPT](https://github.com/FreedomIntelligence/HuatuoGPT) |
 | **Med-PaLM 2** | Singhal et al., *Nature Medicine* 2025 | n/a | PaLM 2 | IFT + ensemble refinement + chain-of-retrieval | 86.5 † | n/a | ❌ | Not released (Google internal) |
-| **Qilin-Med** | Ye et al., arXiv 2024 | 7B | Baichuan-7B | CPT on ChiMed then SFT then DPO | n/a | n/a | ✅ | [github.com/CMKRG/QilinMed](https://github.com/CMKRG/QilinMed) |
+| **Qilin-Med** | Ye et al., arXiv 2024 | 7B | Baichuan-7B | CPT on ChiMed then SFT then DPO | n/a | n/a | ✅ | [github.com/CMKRG/QilinMed](https://github.com/CMKRG/QiZhenGPT) |
 | **Zhongjing** | Yang et al., arXiv 2023 | 13B | LLaMA-13B | SFT on real multi-turn physician dialogues | n/a | n/a | ✅ | [github.com/SupritYoung/Zhongjing](https://github.com/SupritYoung/Zhongjing) |
 | **BioMistral-7B** | Labrak et al., arXiv 2024 | 7B | Mistral-7B-v0.1 | CPT on PMC Open Access (3B tokens) | 44.4 ‡ | n/a | ✅ | [HuggingFace: BioMistral-7B](https://huggingface.co/BioMistral/BioMistral-7B) |
 | **Med-Gemini-L ★** | Saab et al., arXiv 2024 | n/a | Gemini 1.0 Ultra | IFT + uncertainty-guided web search at inference | **91.1 †★** | n/a | ❌ | Not released (Google internal) |
