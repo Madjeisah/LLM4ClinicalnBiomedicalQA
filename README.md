@@ -3,6 +3,7 @@
 # 🧬 Large Language Models for Healthcare and Biomedical Question Answering
 ### A Systematic Survey — 2019–2025
 
+[![Interactive Preview](https://img.shields.io/badge/arXiv-preprint-b31b1b?style=flat-square&logo=arxiv)](https://github.com/Madjeisah/LLM-4-ClinicalnBiomedicalQA/edit/master/index.html) 
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Papers](https://img.shields.io/badge/papers_reviewed-114-blue?style=flat-square)](docs/paper_list.md)
