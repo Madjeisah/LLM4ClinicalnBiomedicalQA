@@ -14,7 +14,7 @@
 ---
 
 > **This repository accompanies the survey paper:** *"Large Language Models for Healthcare and Biomedical Question Answering: Methods, Benchmarks, and Open Problems"*
-> covering 114 papers from 2019–2025, with a unified taxonomy of methods, a structured dataset comparison, a quantitative safety evaluation, and ten original research gaps.
+> covering 120 papers from 2019–2025, with a unified taxonomy of methods, a structured dataset comparison, a quantitative safety evaluation, and ten original research gaps.
 
 ---
 
@@ -37,11 +37,11 @@
 
 ## Overview
 
-This survey provides a comprehensive review of LLM-based biomedical and clinical question answering (QA), organised around four contributions:
+This survey provides a comprehensive review of LLM-based biomedical and clinical question answering (QA), organized around four contributions:
 
 | Contribution | Description |
 |---|---|
-| 🗂️ **Unified taxonomy** | 114 papers organised into 7 methodological families |
+| 🗂️ **Unified taxonomy** | 120 papers organised into 7 methodological families |
 | 📊 **Dataset comparison** | 22 benchmarks compared across type, language, modality, and limitations |
 | 🔒 **Safety evaluation** | Quantitative evidence on hallucination, calibration, temporal drift, and demographic bias |
 | 🔭 **Research gaps** | 10 original gaps, each specified as a concrete missing benchmark or capability |
@@ -194,18 +194,18 @@ Temporal drift:                    Asymmetric — high guideline endorsement, lo
 
 Ten original gaps identified, each specified as a **concrete missing benchmark or technical capability**:
 
-| # | Gap | Severity | Recommended Venue |
-|---|---|---|---|
-| 1 | Calibration, metacognition & abstention | 🔴 Critical | NeurIPS / ACL / *Nature Communications* |
-| 2 | Temporal knowledge drift & continual learning | 🔴 Critical | JAMIA / EMNLP |
-| 3 | Multilingual low-resource clinical QA | 🟠 High | ACL / NAACL |
-| 4 | Flexible clinical reasoning (Einstellung effect) | 🔴 Critical | ACL / NeurIPS |
-| 5 | Open-ended long-form benchmarks | 🟠 High | EMNLP / *JAMA Network* |
-| 6 | Rare disease & long-tail QA | 🟠 High | *Nature Medicine* |
-| 7 | Health equity & demographic bias | 🔴 Critical | *Lancet Digital Health* / FAccT |
-| 8 | RAG retrieval quality & provenance | 🟠 High | ACL Findings / JAMIA |
-| 9 | Multimodal QA beyond 2-D radiology | 🟠 High | NeurIPS / MICCAI |
-| 10 | Regulatory-grade evaluation | 🔴 Critical | *NEJM AI* / *Lancet Digital Health* |
+| # | Gap | Novelty | Evidence | Feasibility | Impact |
+|---|-----|---------|----------|-------------|--------|
+| 1 | Calibration & abstention | ★★★ | Strong | High | **Critical** |
+| 2 | Temporal drift & continual learning | ★★★ | Growing | Medium | **Critical** |
+| 3 | Multilingual low-resource | ★★★ | Strong | Medium | High |
+| 4 | Flexible clinical reasoning | ★★★ | Strong | High | **Critical** |
+| 5 | Open-ended long-form QA | ★★ | Moderate | High | High |
+| 6 | Rare disease QA | ★★★ | Confirmed | High | High |
+| 7 | Health equity & bias | ★★ | Medium | Strong | **Critical** |
+| 8 | RAG audit & provenance | ★★ | Moderate | High | High |
+| 9 | 3-D multimodal QA | ★★★ | Confirmed | Medium | High |
+| 10 | Regulatory evaluation | ★★ | Growing | Low | **Critical** |
 
 ---
 
