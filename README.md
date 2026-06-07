@@ -41,7 +41,7 @@ This survey provides a comprehensive review of LLM-based biomedical and clinical
 
 | Contribution | Description |
 |---|---|
-| 🗂️ **Unified taxonomy** | 120 papers organised into 7 methodological families |
+| 🗂️ **Unified taxonomy** | 120 papers organized into 7 methodological families |
 | 📊 **Dataset comparison** | 22 benchmarks compared across type, language, modality, and limitations |
 | 🔒 **Safety evaluation** | Quantitative evidence on hallucination, calibration, temporal drift, and demographic bias |
 | 🔭 **Research gaps** | 10 original gaps, each specified as a concrete missing benchmark or capability |
