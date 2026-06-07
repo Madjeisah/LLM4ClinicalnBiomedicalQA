@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧬 From Examination to Deployment: Large Language Models for Clinical and Biomedical Question Answering
+# 🧬 From Examination to Deployment: Large Language Models for Biomedical Question Answering
 ### A Systematic Survey — 2019–2025
 
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/)
