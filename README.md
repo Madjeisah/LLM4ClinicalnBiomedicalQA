@@ -183,7 +183,7 @@ Ordered by publication year, then MedQA score. Chinese-ecosystem models (HuatuoG
 
 ```
 Benchmark → Clinical correlation:  ρ = 0.59  (Kim & Yoon, 2025)
-MedQA SOTA (Med-Gemini-L):        91.1%  (Saab et al., 2024)
+MedQA SOTA (Med-Gemini-L):         91.1%  (Saab et al., 2024)
 Demographic bias prevalence:       91.7% of 24 systematic review studies
 Best uncertainty proxy (AUC):      0.68–0.79  (sample consistency, Savage et al., 2025)
 GPT-4 mortality prediction acc.:   31.5%  vs GPT-3.5's 59.3% — optimism bias from RLHF
