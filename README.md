@@ -312,15 +312,15 @@ A **claim-level hallucination metric** evaluates each factual statement individu
 
 For the aspirin example:
 
-[
+$$
 N_{\mathrm{claims}} = 2
-]
+$$
 
 and
 
-[
+$$
 N_H = 1,
-]
+$$
 
 where:
 
@@ -329,7 +329,7 @@ where:
 
 The claim-level hallucination rate is
 
-[
+$$
 \mathrm{Hall}_{\mathrm{claim}}
 ==============================
 
@@ -340,7 +340,7 @@ The claim-level hallucination rate is
 # \frac{1}{2}
 
 50%.
-]
+$$
 
 ### Interpretation
 
