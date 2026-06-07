@@ -327,20 +327,8 @@ where:
 * (N_H) = number of hallucinated (unsupported) claims
 * (N_{\mathrm{claims}}) = total number of generated claims
 
-The claim-level hallucination rate is
+The claim-level hallucination rate is 50%.
 
-$$
-\mathrm{Hall}_{\mathrm{claim}}
-==============================
-
-\frac{N_H}
-{N_{\mathrm{claims}}}
-=====================
-
-# \frac{1}{2}
-
-50%.
-$$
 
 ### Interpretation
 
