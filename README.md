@@ -279,14 +279,14 @@ $$
 
 The answer-level hallucination rate is
 
-[
+$$
 \mathrm{Hall}_{\mathrm{answer}}
 ===============================
 
 \frac{1}{N}
 \sum_{i=1}^{N}
 \mathbf{1}_H(y_i),
-]
+$$
 
 where:
 
@@ -295,9 +295,9 @@ where:
 
 Since the aspirin example contains the unsupported claim *"Aspirin decreases bleeding risk"*, the entire response is marked as hallucinated:
 
-[
+$$
 \mathbf{1}_H(y_i)=1.
-]
+$$
 
 ### Interpretation
 
