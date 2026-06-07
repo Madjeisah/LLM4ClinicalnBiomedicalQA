@@ -269,13 +269,13 @@ An **answer-level hallucination metric** asks:
 
 Formally,
 
-[
+$$
 \mathbf{1}_H(y_i)=
 \begin{cases}
 1, & \text{if answer } y_i \text{ contains at least one hallucinated claim},\
 0, & \text{otherwise}.
 \end{cases}
-]
+$$
 
 The answer-level hallucination rate is
 
