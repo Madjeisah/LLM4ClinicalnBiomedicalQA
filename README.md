@@ -157,7 +157,7 @@ Ordered by publication year, then MedQA score. Chinese-ecosystem models (HuatuoG
 | **BioMistral-7B** | Labrak et al., arXiv 2024 | 7B | Mistral-7B-v0.1 | CPT on PMC Open Access (3B tokens) | 44.4 ‡ | n/a | ✅ | [HuggingFace: BioMistral-7B](https://huggingface.co/BioMistral/BioMistral-7B) |
 | **Med-Gemini-L ★** | Saab et al., arXiv 2024 | n/a | Gemini 1.0 Ultra | IFT + uncertainty-guided web search at inference | **91.1 †★** | n/a | ❌ | Not released (Google internal) |
 | **Polaris** | Mukherjee et al., arXiv 2024 | n/a | Proprietary | Safety-first IFT + DPO on physician preference pairs | n/a | n/a | ❌ | Not released (Accenture internal) |
-| **Baichuan-M1-14B** | Xu et al., arXiv 2025 | 14B | From scratch | Full-stack: domain vocab + CPT + SFT + RLHF | n/a | n/a | ✅ | [HuggingFace: Baichuan-M1-14B](https://huggingface.co/baichuan-inc/Baichuan-M1-14B) |
+| **Baichuan-M1-14B** | Xu et al., arXiv 2025 | 14B | From scratch | Full-stack: domain vocab + CPT + SFT + RLHF | n/a | n/a | ✅ | [HuggingFace: Baichuan-M1-14B](https://huggingface.co/baichuan-inc/Baichuan-M1-14B-Base) |
 
 > **Key insight — the fine-tuning paradox:** Instruction fine-tuning consistently improves safety, clinical communication alignment, and parameter efficiency, but rarely improves raw MCQ accuracy over a well-prompted general LLM at the same scale. MedAlpaca (35.4%) and PMC-LLaMA (27.6%) both fine-tune LLaMA-13B on medical data yet score far below GPT-3.5 (60.2%) with no medical training. Fine-tuning reshapes *how* knowledge is expressed, not *how much* knowledge is stored.
 
