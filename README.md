@@ -238,6 +238,140 @@ If this survey informs your research, please cite:
 
 ---
 
+## Understanding Answer-Level vs Claim-Level Hallucination
+
+Consider the following example.
+
+### Source Context
+
+> *"Aspirin reduces cardiovascular risk but increases bleeding risk."*
+
+### Model-Generated Answer
+
+> *"Aspirin reduces cardiovascular risk and decreases bleeding risk."*
+
+The generated answer contains two factual claims:
+
+| Claim                               | Supported by Source? |
+| ----------------------------------- | -------------------- |
+| Aspirin reduces cardiovascular risk | ✅ Yes                |
+| Aspirin decreases bleeding risk     | ❌ No                 |
+
+The second claim is unsupported (and contradicts the source evidence), and therefore constitutes a **hallucination**.
+
+---
+
+### Answer-Level Hallucination
+
+An **answer-level hallucination metric** asks:
+
+> Does the answer contain at least one hallucinated claim?
+
+Formally,
+
+[
+\mathbf{1}_H(y_i)=
+\begin{cases}
+1, & \text{if answer } y_i \text{ contains at least one hallucinated claim},\
+0, & \text{otherwise}.
+\end{cases}
+]
+
+The answer-level hallucination rate is
+
+[
+\mathrm{Hall}_{\mathrm{answer}}
+===============================
+
+\frac{1}{N}
+\sum_{i=1}^{N}
+\mathbf{1}_H(y_i),
+]
+
+where:
+
+* (N) = total number of generated answers
+* (y_i) = the (i)-th generated answer
+
+Since the aspirin example contains the unsupported claim *"Aspirin decreases bleeding risk"*, the entire response is marked as hallucinated:
+
+[
+\mathbf{1}_H(y_i)=1.
+]
+
+### Interpretation
+
+Answer-level hallucination measures:
+
+> **How often does a generated response contain at least one unsupported claim?**
+
+It does **not** distinguish between responses containing one hallucinated claim and responses containing many hallucinated claims.
+
+---
+
+### Claim-Level Hallucination
+
+A **claim-level hallucination metric** evaluates each factual statement individually.
+
+For the aspirin example:
+
+[
+N_{\mathrm{claims}} = 2
+]
+
+and
+
+[
+N_H = 1,
+]
+
+where:
+
+* (N_H) = number of hallucinated (unsupported) claims
+* (N_{\mathrm{claims}}) = total number of generated claims
+
+The claim-level hallucination rate is
+
+[
+\mathrm{Hall}_{\mathrm{claim}}
+==============================
+
+\frac{N_H}
+{N_{\mathrm{claims}}}
+=====================
+
+# \frac{1}{2}
+
+50%.
+]
+
+### Interpretation
+
+Claim-level hallucination measures:
+
+> **What proportion of generated factual statements are unsupported?**
+
+Unlike answer-level metrics, it provides a finer-grained estimate of factual reliability.
+
+---
+
+### Key Difference
+
+Using the aspirin example:
+
+| Metric                     | Result                    |
+| -------------------------- | ------------------------- |
+| Answer-level hallucination | (1) (hallucinated answer) |
+| Claim-level hallucination  | (50%)                     |
+
+Thus:
+
+* **Answer-level hallucination** measures the frequency of problematic responses.
+* **Claim-level hallucination** measures the proportion of unsupported factual statements within those responses.
+
+Claim-level metrics are therefore particularly useful for evaluating **long-form biomedical question answering**, where a single response may contain many factual claims and only a subset may be hallucinated.
+
+
 ## Contributing
 
 Spotted a missing model, an updated benchmark result, or a broken link?
