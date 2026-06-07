@@ -5,7 +5,7 @@
 
 
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/)
-[![Interactive preview](https://img.shields.io/badge/Interactive-preview-blue?style=flat-square)]([docs/paper_list.md](https://madjeisah.github.io/llm4clinicalnbiomedicalqa.html))
+[![Interactive preview](https://img.shields.io/badge/Interactive-preview-blue?style=flat-square)](https://madjeisah.github.io/llm4clinicalnbiomedicalqa.html)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Papers](https://img.shields.io/badge/papers_reviewed-120-blue?style=flat-square)](docs/paper_list.md)
 [![Datasets](https://img.shields.io/badge/datasets_catalogued-22-orange?style=flat-square)](docs/datasets.md)
