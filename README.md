@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🧬 From Examination to Deployment: Large Language Models for Biomedical Question Answering
-### A Systematic Survey — 2019–2025
+### A Systematic Survey — Jan 2019–Mar 2026
 
 
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/)
@@ -17,7 +17,7 @@
 ---
 
 > **This repository accompanies the survey paper:** *"Large Language Models for Healthcare and Biomedical Question Answering: Methods, Benchmarks, and Open Problems"*
-> covering 125 papers from 2019–2025, with a unified taxonomy of methods, a structured dataset comparison, a quantitative safety evaluation, and ten original research gaps.
+> covering 150 papers from 2019–2026, with a unified taxonomy of methods, a structured dataset comparison, a quantitative safety evaluation, and ten original research gaps.
 
 ---
 
